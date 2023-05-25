@@ -1,0 +1,194 @@
+/* IMPORTS ------------------------------------------------------------*/
+ 
+/*
+@import url('reset.css');
+*/
+
+@import url('styled-elements.css');
+
+
+
+/* HACKS ------------------------------------------------------------*/
+
+.clear{
+	clear:both;
+	height:1px;
+}
+
+.inv{ display:none; }
+
+.alignleft{
+	float: left;
+	margin: 5px 10px 5px 0px;
+}
+ 
+
+/* GENERAL ------------------------------------------------------------*/
+
+
+ body {
+	line-height: 1;	
+	background: #383737d0 url(../img/bg/patterns/obl-1x1.png);
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:  100%;
+    z-index: 1;
+} 
+
+ #contenedor{
+	width: 1200px;
+	height: 1000px;
+	margin: 0.5em auto;
+	padding:0.5em;	
+	background: #2e2e2e83;    
+	min-height: 700px;
+	font-size: 14px;
+	line-height: 1.5em;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+    z-index: 0;
+} 
+
+/*la clase header refiere al logo*/
+ #header{	
+    height: 200px;	
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+ 
+#main{
+	width: 80%;
+	height: 500px;
+	
+	margin-left: auto;
+	margin-right: auto;
+	
+	position: relative;
+	
+
+	color:#ffffff;
+	
+
+	position: relative;
+	border-radius: 10px;	
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+#main::before{
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 100%;		
+	background-image: url(../images/bandera.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	opacity: .1;
+	
+}
+
+#section{
+	height: 91%;
+	width: 50%;	
+	border-radius: 0.5em;
+	float: left;
+	margin: 50px 0px 0px 0px;   
+	position: relative;
+
+	display: flex;
+	/*elementos en vertical */
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+	
+
+}
+
+#calendario{
+	height: 88%;
+	width: 50%;		
+    border-radius: 0.5em;
+	float: right; 
+	margin: 50px 0px 0px 0px;
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+footer{	
+	color: black;    
+    position: relative;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	height: 100px;
+	background: #363636;
+	border-radius: 10px;
+	margin-top: 20px;
+}
+
+#logo{
+	position: absolute;
+	top: 40px;
+	left: 30px;
+}
+
+
+/* HOME --------------------------------------------------------*/
+
+
+
+/* HEADERS --------------------------------------------------------*/
+
+h1,h2,h3,h4,h5,h6{ 
+	line-height: 1.4em;
+	font-family: 'Ubuntu', arial, serif; 
+	font-weight: lighter;
+}
+
+h1{ font-size: 30px; }
+
+h2{ font-size: 28px; }
+
+h3{ font-size: 26px; }
+
+h4{ font-size: 24px; }
+
+h5{ font-size: 22px; }
+
+h6{ font-size: 20px; }
+
+
+body.home #content{
+	padding-top: 250px;
+}
+
+#headline a{
+	text-decoration: none;
+	color: #FFD800; 
+}
+
+/* HEADERS --------------------------------------------------------*/
+
+h1,h2,h3,h4,h5,h6{ 
+	line-height: 1.4em;
+	font-family: 'Ubuntu', arial, serif; 
+	font-weight: lighter;
+}
+
+h1{ font-size: 30px; }
+
+h2{ font-size: 28px; }
+
+h3{ font-size: 26px; }
+
+h4{ font-size: 24px; }
+
+h5{ font-size: 22px; }
+
+h6{ font-size: 20px; }
