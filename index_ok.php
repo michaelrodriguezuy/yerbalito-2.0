@@ -1,7 +1,9 @@
 <?php 
 
 require_once('Connections/yerbalito.php');
-include('session.php'); //esto lo uso para dar la bienvenida y para cerrar sesion
+//require_once('D://Virtuales//Docker//server//docker-lamp-main//www//yerbalito//Connections//yerbalito.php');
+
+//include('session.php'); //esto lo uso para dar la bienvenida y para cerrar sesion
 
 //include('seguridad.php');  	  
 //      include('funciones.php');	
@@ -137,52 +139,52 @@ include('funciones2.php');
     <link rel="shortcut icon" href="favicon.ico">
 
     <script>
-    $(document).ready(function() {
-        $('#CalendarioWeb').fullCalendar({
+        $(document).ready(function () {
+            $('#CalendarioWeb').fullCalendar({
 
 
-            dayClick: function(date, jsEvent, view) {
-                $(this).css('background-color', 'grey');
-                $("#exampleModal").modal();
-            },
-            events: 'cumples.php',
-            /*
-            eventSources:[{
-              events:[
-              {
-                title: 'Pablo',
-                descripcion: "Pablo Menchaca - Cat 2012",
-                start: '2023-04-22',          
-                color:"#acefc8",
-                textColor:"#000000" // an option!      
-                //allDay:true
-              }],        
-              color:"black",
-              textColor:"yellow" // an option!
-            }],
-            */
-            eventClick: function(calEvent, jsEvent, view) {
-                $('#idEvento').val(calEvent.id)
-                //          $('#idJug').val(calEvent.id_jugador);
+                dayClick: function (date, jsEvent, view) {
+                    $(this).css('background-color', 'grey');
+                    $("#exampleModal").modal();
+                },
+                events: 'cumples.php',
+                /*
+                eventSources:[{
+                  events:[
+                  {
+                    title: 'Pablo',
+                    descripcion: "Pablo Menchaca - Cat 2012",
+                    start: '2023-04-22',          
+                    color:"#acefc8",
+                    textColor:"#000000" // an option!      
+                    //allDay:true
+                  }],        
+                  color:"black",
+                  textColor:"yellow" // an option!
+                }],
+                */
+                eventClick: function (calEvent, jsEvent, view) {
+                    $('#idEvento').val(calEvent.id)
+                    //          $('#idJug').val(calEvent.id_jugador);
 
-                $('#tituloEvento').html(calEvent.title);
-                $('#fecha').html(calEvent.start);
-                $('#descripcionEvento').html(calEvent.description);
-                $('#imagen2').val(calEvent.image);
-
-
-                //$('#idCat').val(calEvent.id_categoria);
-                $("#exampleModal").modal();
+                    $('#tituloEvento').html(calEvent.title);
+                    $('#fecha').html(calEvent.start);
+                    $('#descripcionEvento').html(calEvent.description);
+                    $('#imagen2').val(calEvent.image);
 
 
-            },
+                    //$('#idCat').val(calEvent.id_categoria);
+                    $("#exampleModal").modal();
 
-            //cellHeight: 100,
-            slotWidth: 200,
+
+                },
+
+                //cellHeight: 100,
+                slotWidth: 200,
+
+            });
 
         });
-
-    });
     </script>
 
 </head>
@@ -195,74 +197,51 @@ include('funciones2.php');
 
             </div>
 
-            <div class="user-info">
-                <!--
-                    <h2> <a href="logout.php">Sign Out</a> </h2>
--->
-                <span> Bienvenido <?php echo $_SESSION['login_user']; ?> </span>
 
-                <div class="user-image"></div>
-                <button id="closeApp">
-                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
-            </div>
+            <ul class="menu-list">
+                <li><a href="index.php">Inicio</a></li>
+                <li><a href="plantel.php">Planteles</a></li>
+                <li><a href="contacto.php">Contacto</a></li>
+                <li><a href="login.php">Iniciar Sesion</a></li>
+            </ul>
+
+
         </nav>
 
     </header>
 
     <!-- MAIN -->
     <main class="container">
-        <section id="listaTareas">
-            <article class="articulo">
-                <a href="listado_jugadores.php"> <img src="img/mono-icons/user32.png" width="32" height="32"
-                        title="Ver jugadores"></a>JUGADORES
-                <hr>
-            </article>
-            <?php if($_SESSION["admin"] != 3) { ?>
-            <article class="articulo">
-                <a href="listado_categorias.php"><img src="img/knobs-icons/Knob Search.png" width="32" height="32"
-                        title="Ver categorias"></a>CATEGORIAS
-                <hr>
-                <?php }?>
-            </article>
-            <?php if($_SESSION["admin"] == 1) { ?>
-            <article class="articulo">
-                <a href="listado_libretas.php"><img src="img/knobs-icons/Knob Search.png" width="32" height="32"
-                        title="Ver libretas recibo"></a>LIBRETAS
-                <hr>
-            </article>
-            <?php }?>
-            <article class="articulo">
-                <a href="listado_recibos.php"><img src="img/knobs-icons/Knob Search.png" width="32" height="32"
-                        title="Ver cuotas"></a>CUOTAS CLUB
-                <hr>
-            </article>
-            <article class="articulo">
-                <a href="listado_fondo.php"><img src="img/knobs-icons/Knob Search.png" width="32" height="32"
-                        title="Ver cuotas"></a>FONDO DE CAMPEONATO
-                <hr>
-            </article>
-            <article class="articulo">
-                <!-- ver si es un administrador muestro la opcion sino no -->
-                <?php if($_SESSION["admin"] == 1) {?>
-                <a href="listado_usuarios.php"><img src="img/knobs-icons/Knob Search.png" width="32" height="32"
-                        title="Ver usuarios"></a>USUARIOS
-                <hr>
-                <?php ;}?>
-            </article>
-            <article class="articulo">
-                <?php if(($_SESSION["admin"] == 0) or ($_SESSION["admin"] == 1)) {
-                	?>
-                <a href="reportes.php"><img src="img/knobs-icons/Knob Search.png" width="32" height="32"
-                        title="Realizar reportes"></a>REPORTES
-                <hr>
-                <?php ;} ?>
-            </article>
 
-            <article class="articulo">
-                <a href="salir.php"><img src="img/knobs-icons/Knob Cancel.png" width="32" height="32"
-                        title="Cerrar sesion"></a>SALIR
-            </article>
+
+
+        <section id="calendario">
+            <div class="row">
+                <article class="articulo2">
+                    <div class="col"></div>
+                    <div class="col-7">
+                        <div id="CalendarioWeb"></div>
+                    </div>
+                    <div class="col"></div>
+                </article>
         </section>
+
+        <section id="facebook">
+
+            <div id="fb-root">
+
+                <div class="fb-page" data-href="https://www.facebook.com/Clubyerbalitodebabyfutbol" data-tabs="timeline"
+                    data-width="" data-height="" data-small-header="true" data-adapt-container-width="true"
+                    data-hide-cover="false" data-show-facepile="true">
+                    <blockquote cite="https://www.facebook.com/Clubyerbalitodebabyfutbol" class="fb-xfbml-parse-ignore">
+                        <a href="https://www.facebook.com/Clubyerbalitodebabyfutbol">Club Yerbalito Baby Futbol</a>
+                    </blockquote>
+                </div>
+
+            </div>
+        </section>
+
+
 
     </main>
 
@@ -277,7 +256,9 @@ include('funciones2.php');
 
         <div class="footer-content">
             <div class="ingresarA">
-                <h2>Cantidad de niñas y niños: <span id="cantidad-finalizadas"><?php echo $cantJugadores ?></span></h2>
+                <h2>Cantidad de niñas y niños: <span id="cantidad-finalizadas">
+                        <?php echo $cantJugadores ?>
+                    </span></h2>
                 <!-- contenedor vacío para las que pasen a terminadas -->
                 <ul class="tareas-terminadas"></ul>
             </div>
@@ -287,7 +268,7 @@ include('funciones2.php');
                     <a href="https://www.facebook.com/Clubyerbalitodebabyfutbol" target="_blank"> <i
                             class="fa fa-facebook"></i></a>
                 </li>
-
+                <!-- hola@yerbalito.uy -->
                 <li>
                     <a href="https://www.instagram.com/clubyerbalitobabyfutbol/" target="_blank"> <i
                             class="fa fa-instagram"></i></a>
@@ -296,6 +277,12 @@ include('funciones2.php');
                     <a href="https://api.whatsapp.com/send?phone=59899163200&text=Hola%20Yerbalito" target="_blank"> <i
                             class="fa fa-whatsapp"></i></a>
                 </li>
+
+                <li>
+                    <a href="mailto:hola@yerbalito.uy?subject=enviado%20desde%20la%20web" target="_blank"> <i
+                            class="fa fa-envelope"></i></a>
+                </li>
+
             </ul>
         </div>
 
@@ -306,9 +293,34 @@ include('funciones2.php');
 
     </footer>
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloEvento"></h5>
 
+                    <!-- este boton queda chico y no capta el evento click -->
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
 
-    <!-- con esto muestro la hora actual
+                </div>
+                <div class="modal-body">
+
+                    <div id="descripcionEvento">
+
+                    </div>
+                    <!-- aca tengo el ID del jugador que cliqueo en el calendario -->
+                    <div id="imagen2">
+                        <input id="idEvento" type="hidden" value="idEvento" />
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- con estoy muestro la hora actual
   <script>
       let d = new Date();
       document.body.innerHTML += "<h1>Time right now is:  " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds()

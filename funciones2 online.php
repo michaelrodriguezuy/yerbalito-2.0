@@ -9,25 +9,23 @@
 
 function actualizaDeudores() {		//esta funcion busca jugadores que figuren habilitados pero si paso el dia 10 del mes siguiente y no han pago, los cambia a deudores
 	
-	$host="host.docker.internal";
-//    $host="172.19.0.3"; 
-    //$host="localhost";
-	$user="admin"; 
-    //$user="wwwolima";
-    //$user="root";
-	$password="admin"; 
-    //$password="test"; 
-    //$password="rjW63u0I6n";
+	// Create connection
+	//$host="host.docker.internal";
+	$host="localhost";
+	//$user="root";
+	$user="wwwolima";
+	//$password="test";
+	$password="rjW63u0I6n";
 	$db="wwwolima_yerbalito";
 
-	
-    $mysqli = new mysqli($host, $user, $password, $db);
+	$mysqli = new mysqli($host, $user, $password, $db);
 
-	if ($mysqli->connect_error) {
-    	die("Error de conexión: " . $mysqli->connect_error);
-	} else {
-    	echo "Conexión exitosa";
-	}
+    try {
+        $mysqli->connect_error;
+    } catch (\Throwable $th) {
+        echo "connection failed";
+    }
+
 
 	$hoy=getdate();
 

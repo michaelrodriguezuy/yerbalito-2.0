@@ -4,7 +4,8 @@
    
    $user_check = $_SESSION['login_user'];
 
-   $ses_sql = $db-> query("select usuario from usuario where nombre ='". $user_check."'"); //me trae el usuario de ese nombre
+   $ses_sql = $db-> query("select usuario from usuario where nombre ='". $user_check."'"); 
+   //me trae el usuario de ese nombre
 
    $login_session = '';
 

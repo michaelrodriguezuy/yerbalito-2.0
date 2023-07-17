@@ -109,7 +109,7 @@ _ACTIVE = 2
     </div>
 
     <footer class="ingresarA">
-        <a href="http://olimarteam.uy/yerbalito/">Yerbalito</a> es un sitio de <a target="_blank"
+        <a href="http://yerbalito.uy/">Yerbalito</a> es un sitio de <a target="_blank"
             href="http:/olimarteam.uy">olimarteam.uy</a>
     </footer>
 
