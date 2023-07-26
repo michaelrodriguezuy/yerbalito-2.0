@@ -1,7 +1,7 @@
 <?php 
 
 require_once('Connections/yerbalito.php');
-include('session.php'); //esto lo uso para dar la bienvenida y para cerrar sesion
+/*include('session.php'); //esto lo uso para dar la bienvenida y para cerrar sesion*/
 
 //include('seguridad.php');  	  
 //      include('funciones.php');	

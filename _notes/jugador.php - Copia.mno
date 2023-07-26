@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_DatosJugador" value="name:idjugador;datatype:int,name:nombre;datatype:string,name:apellido;datatype:string,name:fecha_nacimiento;datatype:date,name:cedula;datatype:int,name:imagen;datatype:string,name:padre;datatype:string,name:madre;datatype:string,name:contacto;datatype:string,name:fecha_ingreso;datatype:date,name:idcategoria;datatype:int,name:idestado;datatype:int,name:idcategoria;datatype:int,name:nombre_categoria;datatype:string,name:tecnico;datatype:string,name:contacto;datatype:string,name:idestado;datatype:int,name:idestado;datatype:int,name:tipo_estado;datatype:string" />
+	<infoitem key="UD_Recordset1" value="name:idjugador;datatype:int,name:nombre;datatype:string,name:apellido;datatype:string,name:fecha_nacimiento;datatype:date,name:cedula;datatype:int,name:imagen;datatype:string,name:padre;datatype:string,name:madre;datatype:string,name:contacto;datatype:string,name:fecha_ingreso;datatype:date,name:idcategoria;datatype:int,name:idestado;datatype:int" />
+</info>

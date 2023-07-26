@@ -40,8 +40,10 @@ $cantJugadores = count($rows);
 
     <!- ----------------------------- GOOGLE FONTS ----------------------------- -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 
     <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -56,24 +58,46 @@ $cantJugadores = count($rows);
 </head>
 
 <body>
-    <header>
-        <nav class="nav">
-
-            <div class="logo">
-
-            </div>
-            
-
-        </nav>      
-
-    </header>
+<header>
+    <nav class="nav">
+      <div class="logo"></div>
+    </nav>
+    <nav class="nav-menu">
+      <ul class="ul">
+        <li class="menu-btn">
+          <a class="a" href="#">Inicio</a>
+          <ul class="submenu">
+            <li class="li"><a class="a" href="acerca.html">Nuestra institución</a></li>
+            <li class="li"><a class="a" href="calendario.html">Cumpleaños</a></li>
+          </ul>
+        </li>
+        <li class="li"><a class="a" href="planteles.html">Planteles</a></li>
+        <li class="li"><a class="a" href="blog.php">Blog</a></li>
+        <li class="li"><a class="a" href="contacto.html">Contacto</a></li>
+        <li class="li"><a class="a" href="login.php">Login</a></li>
+      </ul>
+    </nav>
+  </header>
 
     <!-- MAIN -->
     <main class="main">
 
+    <!-- muestro la hora
         <h1 class="main-h1" id="h1">
-
+            
         </h1>
+-->
+        <p class="p">
+            El Club Yerbalito de Baby Fútbol es una Institución que cuenta con más de 45 años de existencia situada en la ciudad de Treinta y Tres y que hace ocho años logró tramitar y obtener la personería jurídica; se dedica a la práctica de fútbol infantil, donde recibe semanalmente a más de 150 niños y niñas, pero hace un par de años viene desarrollando otras actividades conexas en beneficio del crecimiento físico y mental de los niños que en ésta participan, lo cual le permite realizar una tarea social considerada muy importante para la población.
+            </p>
+
+
+           <seccion class="seccion">
+            <img src="" alt="" class="img">
+            <img src="" alt="" class="img">
+            <img src="" alt="" class="img">
+            <img src="" alt="" class="img">
+           </seccion>
 
     </main>
 
@@ -93,7 +117,11 @@ $cantJugadores = count($rows);
                 </li>
 
                 <li>
-                    <a href="https://www.instagram.com/clubyerbalitobabyfutbol/" target="_blank"> <i
+                    <a href="https://www.instagram.com/clubyerbalitobabyfutbol/" title="yerbalito" target="_blank"> <i
+                            class="fa fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/yerbalito.fem/" title="yerbalito femenino" target="_blank"> <i
                             class="fa fa-instagram"></i></a>
                 </li>
                 <li>
@@ -101,11 +129,10 @@ $cantJugadores = count($rows);
                             class="fa fa-whatsapp"></i></a>
                 </li>
                 <li>
-                    <a href="mailto:hola@yerbalito.uy?subject=enviado%20desde%20la%20web" target="_blank"> <i
+                    <a href="mailto:info@yerbalito.uy?subject=enviado%20desde%20la%20web" target="_blank"> <i
                             class="fa fa-envelope" ></i></a>
                 </li>
             </ul>
-
             
         </div>
 

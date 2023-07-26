@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_DatosLibreta" value="name:idlibreta;datatype:int,name:numeracion;datatype:string,name:idcategoria;datatype:int,name:fin;datatype:int,name:idcategoria;datatype:int,name:nombre_categoria;datatype:string,name:tecnico;datatype:string,name:telefono;datatype:string,name:idestado;datatype:int,name:idcategoria;datatype:int,name:nombre_categoria;datatype:string" />
+</info>

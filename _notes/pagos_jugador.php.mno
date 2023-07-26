@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_PagosJugador" value="name:idrecibo;datatype:int,name:numero;datatype:int,name:mes_pago;datatype:int,name:monto;datatype:real,name:fecha_recibo;datatype:date,name:idjugador;datatype:int,name:idlibreta;datatype:int,name:anio;datatype:int,name:observacionesRecibo;datatype:string" />
+	<infoitem key="UD_datosJugador" value="name:idjugador;datatype:int,name:nombre;datatype:string,name:apellido;datatype:string,name:fecha_nacimiento;datatype:date,name:cedula;datatype:int,name:imagen;datatype:string,name:padre;datatype:string,name:madre;datatype:string,name:contacto;datatype:string,name:fecha_ingreso;datatype:date,name:idcategoria;datatype:int,name:idestado;datatype:int,name:observacionesJugador;datatype:string,name:numeroClub;datatype:int,name:sexo;datatype:string,name:ciudadania;datatype:string" />
+</info>

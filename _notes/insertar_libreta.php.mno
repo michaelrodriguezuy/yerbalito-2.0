@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_DatosCategoria" value="name:idcategoria;datatype:int,name:nombre_categoria;datatype:string,name:tecnico;datatype:string,name:telefono;datatype:string,name:idestado;datatype:int" />
+	<infoitem key="UD_DatosLibretaUlt" value="name:idlibreta;datatype:int,name:numeracion;datatype:string,name:idcategoria;datatype:int,name:fin;datatype:int" />
+</info>

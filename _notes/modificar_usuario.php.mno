@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_Datosmascotas" value="name:id_mascota;datatype:int,name:tipo;datatype:string,name:apodo;datatype:string,name:raza;datatype:string,name:color;datatype:string,name:foto;datatype:string,name:fecha_ingreso;datatype:date,name:id_usuario;datatype:int,name:observacion;datatype:string,name:fecha_nacimiento;datatype:date" />
+	<infoitem key="UD_Datosusuarios" value="name:id_usuario;datatype:int,name:nombre;datatype:string,name:usuario;datatype:string,name:password;datatype:string,name:celular;datatype:string,name:email;datatype:string,name:direccion;datatype:string,name:localidad;datatype:string,name:estado;datatype:int,name:admin;datatype:int" />
+</info>
