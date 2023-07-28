@@ -28,9 +28,6 @@
 	
   }
 
-  *, :after, :before {
-    box-sizing: border-box;
-}
   
   h2{
 	font-family: var(--fuente);
@@ -62,7 +59,7 @@
     
   }
  
-  html {
+html {
 
     scroll-behavior: smooth;
 }
@@ -71,7 +68,7 @@ body {
 	margin: 0;
     padding: 0;
 
-    background-image: url('../assets/cancha.jpg'); /* hacerle un efecto, que cuando pase el mouse se agrande */
+    background-image: url('../assets/cancha.webp'); /* hacerle un efecto, que cuando pase el mouse se agrande */
 	background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -104,43 +101,51 @@ header {
 }
 
 .nav-menu{
-        
-    width: 100%;
-
+       
     margin-top: 1em;
     
     padding: 1em;
-    display: flex;
-    flex-direction: row;    
-    justify-content: space-around;
+    
+    display: flex;    
+    flex-direction: column;    
+    justify-content: space-between;
     align-items: center;
+
     opacity: 0.4;
+
 }
 
 .nav-menu .ul{
     
-    
     list-style: none;
+
     display: flex;
+    flex-direction: column;
     
-    justify-content: space-between;
+    align-items: center;    
+    
 }
 
 .nav-menu .ul .li {
-        
+            
     /*corregir que no salga de su contenedor*/
-    position: relative;
+    position: relative;   
+
+}
+
+.li-inicio {
     
+    
+    /*corregir que no salga de su contenedor*/
+    position: relative;   
 
 }
 
 .nav-menu .a {
     
-            
     /*quiero que al achicar la pantalla los a no se salgan de pantalla*/
     display: block;
-           
-
+    
     font-family: var(--fuente3);
     /*quiero la fuenta en mayuscula*/
     text-transform: uppercase;
@@ -150,33 +155,33 @@ header {
     line-height: 1.2;
     text-decoration: none;
     
-    margin: 0 2em;
-    padding: 0.5em 1em;
-    transition: transform 0.5s ease;
-   
+    margin: 0.5em 0;
+    
+    transition: transform 0.5s ease;   
 }
 
-.submenu .a{
-    
+.ul-submenu .a{
+    width: 100%;
+
     display: inline-block;
     margin: 0;
     padding: 0;
-    font-size: 1.2em;
+    font-size: 1em;
     line-height: 1.5em;
     transition: transform 0.5s ease;
     
   }
 
-.submenu {
+.ul-submenu {
 
     display: none;
   }
   
-  .menu-btn:hover .submenu {
+  .li-inicio:hover .ul-submenu {
     display: block;
     position: absolute;            
     border-radius: 1em;
-    padding-left: 4em;
+    padding-left: 1em;
   }
 
   /*quiero que el texto en a cuando pongo el mouse se agrande apenas un poco de tamaño*/    
@@ -184,7 +189,7 @@ header {
         transform: scale(1.1);
     }
         
-    .nav-menu .a:hover .submenu .a{
+    .nav-menu .a:hover .ul-submenu .a{
         transform: scale(1.1);
     }
     
@@ -201,13 +206,14 @@ header {
     background-size: contain;
     background-position: center;
 
-	transition: all 2s ease-in-out;
+	/*transition: all 2s ease-in-out;*/
+    transition: transform 0.5s ease;
     z-index: 2;
 }
 
 .logo:hover {
-	cursor: pointer;
-    transform: scale(1.5);
+	cursor: pointer;    
+    transform: scale(1.1);
     /*quiero una transformacion mas suave del logo*/
     transition: all 2s ease-in-out;
 
@@ -298,12 +304,104 @@ header {
     letter-spacing: 1px;
     color: var(--blanco);
     margin-top: 1em;
-    margin: 0 7.5em;
+    margin-left:7.5em;
+    margin-right:7.5em;
+}
+
+.main .p-acerca{
+    font-family: var(--fuente3);
+    font-size: 1.5rem;
+    font-weight: 400;
+    /*mas espaciado entre renglones*/
+    line-height: 2em;
+    /*mas espaciado entre letras*/
+    letter-spacing: 1px;
+    color: var(--blanco);
+   
+    margin-top: 1em;
+    padding: 1em 7.5em; /* Agregar espaciado vertical y horizontal */
+}
+
+.seccion-img-institucional {    
+    width: 100%;
+    display: flex;    
+    justify-content: center;    
+    margin-top: 8em;
+}
+
+.seccion-img-institucional .contenedor-img-institucional{
+    
+    display: flex;    
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    min-width: 5vh;
+}
+
+.seccion-img-institucional .img{
+    /*flex-basis: calc(25% - 1em);*/
+    
+    height: 10em;
+    margin: 0.5em 1em;
+
+    object-fit: cover;
+}
+
+
+.seccion-directiva{
+    
+}
+.h2-comision{  
+
+    display: flex;
+    justify-content: center;
+
+    font-family: var(--fuente3);
+    font-size: 2em;         
+    font-weight: 700;
+    /*quiero este texto en mayuscula*/
+    text-transform: uppercase;
+
+    margin-top: 2em;
+}
+
+.contenedor-directiva{
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 20em;
+    justify-content: center;
+}
+
+.directiva-item{
+    
+    flex: 0 0 8em;    
+    text-align: center;
+    margin: 1em;
+}
+
+.directiva-item .img{
+ display: flex;
+ flex-wrap: wrap;
+    max-width: 100%;
+    max-height: 100%;     
+}
+.puesto, .nombre{
+    
+    font-family: var(--fuente3);
+    font-size: 1.2rem;         
+    margin: 0.5em 0;
+}
+.puesto{
+    font-size: 1em;         
+    font-weight: 700;
+    /*quiero este texto en mayuscula*/
+    text-transform: uppercase;
 }
 
 .footer {
     position: relative;   
-
     background-color: var(--oscuro);
     
     opacity: 0.6;
@@ -386,22 +484,25 @@ header {
 	color:var(--aqua);
 }
 
-/*
-@keyframes moverElemento {
-    0% {
-        transform: translate(-50%, -50%);
+
+@media (min-width: 768px) {
+   
+  
+    .nav-menu .ul {
+      flex-direction: row; /* Mostrar en fila en pantallas grandes */      
     }
-    25% {
-        transform: translate(calc(-50% + 100px), -50%);
+  
+    .nav-menu .a {
+      margin: 0 1em; /* Ajustar el margen horizontal en pantallas grandes */
     }
-    50% {
-        transform: translate(calc(-50% + 100px), calc(-50% + 100px));
+  
+    .ul-submenu {
+      display: none; /* Ocultar el submenú en pantallas grandes */
     }
-    75% {
-        transform: translate(-50%, calc(-50% + 100px));
+  }
+
+  @media (max-width: 900px) {
+    .seccion-img-institucional .img {
+      flex-basis: calc(50% - 1em);
     }
-    100% {
-        transform: translate(-50%, -50%);
-    }
-}
-*/
+  }

@@ -64,11 +64,11 @@ $cantJugadores = count($rows);
     </nav>
     <nav class="nav-menu">
       <ul class="ul">
-        <li class="menu-btn">
+        <li class="li-inicio">
           <a class="a" href="#">Inicio</a>
-          <ul class="submenu">
+          <ul class="ul-submenu">
             <li class="li"><a class="a" href="acerca.html">Nuestra institución</a></li>
-            <li class="li"><a class="a" href="calendario.html">Cumpleaños</a></li>
+            <li class="li"><a class="a" href="calendario.php">Cumpleaños</a></li>
           </ul>
         </li>
         <li class="li"><a class="a" href="planteles.html">Planteles</a></li>
@@ -88,15 +88,17 @@ $cantJugadores = count($rows);
         </h1>
 -->
         <p class="p">
-            El Club Yerbalito de Baby Fútbol es una Institución que cuenta con más de 45 años de existencia situada en la ciudad de Treinta y Tres y que hace ocho años logró tramitar y obtener la personería jurídica; se dedica a la práctica de fútbol infantil, donde recibe semanalmente a más de 150 niños y niñas, pero hace un par de años viene desarrollando otras actividades conexas en beneficio del crecimiento físico y mental de los niños que en ésta participan, lo cual le permite realizar una tarea social considerada muy importante para la población.
+            El Club Yerbalito de Baby Fútbol es una Institución que cuenta con más de 45 años de existencia situada en la ciudad de Treinta y Tres y que hace ocho años logró tramitar y obtener la personería jurídica; se dedica a la práctica de fútbol infantil, donde recibe semanalmente a más de 150 niños y niñas, pero hace un par de años viene desarrollando otras actividades conexas en beneficio del crecimiento físico y mental de los niños que en ésta participan, lo cual le permite realizar una tarea social considerada muy importante para la sociedad.
             </p>
 
 
-           <seccion class="seccion">
-            <img src="" alt="" class="img">
-            <img src="" alt="" class="img">
-            <img src="" alt="" class="img">
-            <img src="" alt="" class="img">
+           <seccion class="seccion-img-institucional">
+            <div class="contenedor-img-institucional">
+              <img src="assets/institucion/1.webp" alt="" class="img">
+              <img src="assets/institucion/2.webp" alt="" class="img">
+              <img src="assets/institucion/3.webp" alt="" class="img">
+              <img src="assets/institucion/4.webp" alt="" class="img">
+            </div>
            </seccion>
 
     </main>
