@@ -219,28 +219,38 @@ header {
 
 }
 
-.nav .user-info {
+.user-info {
     background-color: var(--oscuro);
-    height: 100px;
-    width: 444px;
+    
 
     display: flex;
-
     align-items: center;
     justify-content: space-around;
+
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.nav .user-info span {
+.user-info span {
     
     font-size: 1rem;
     font-weight: 400;
     margin-left: 1rem;
+    /*texto en mayus*/
+    text-transform: uppercase;
 
     text-align: center;
     width: 140px;
 }
 
-.nav .user-info .user-image {
+.user-info .user-image {
 
     height: 2rem;
     width: 2rem;
@@ -253,7 +263,7 @@ header {
     margin-left: .5rem;
 }
 
-.nav .user-info button {
+.user-info button {
 
     background-color: var(--laranja);
     color: var(--blanco);
@@ -270,7 +280,6 @@ header {
 
 .main {
 
-	
 	min-height: 100vh;
     position: relative;    
 
@@ -321,6 +330,68 @@ header {
     margin-top: 1em;
     padding: 1em 7.5em; /* Agregar espaciado vertical y horizontal */
 }
+
+.main .p-cumples{
+    font-family: var(--fuente3);
+    font-size: 5rem;
+    font-weight: 400;
+    /*mas espaciado entre renglones*/
+    line-height: 2em;
+    /*mas espaciado entre letras*/
+    letter-spacing: 1px;
+    color: var(--blanco);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.main #CalendarioWeb{
+    color: var(--app-grey);
+    
+}
+.fc-day-grid-container{    
+    display: contents;
+}
+.fc-day-grid-event.fc-h-event {
+    white-space: normal;
+    word-wrap: break-word;
+  }  
+  .fc-day-grid-event.fc-event-time {
+    white-space: normal;
+  }  
+  .fc-title {
+    white-space: normal;
+  }
+  
+
+
+.articulo2{
+        display: flex;
+    padding: 1em 7.5em; /* Agregar espaciado vertical y horizontal */
+}
+
+.cumpleDelDia{  
+        
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    color: var(--blanco);
+    
+}
+.fotoJugador{
+    width: 15em;
+    height: 15em;
+    border-radius: 50%;
+       
+    margin-bottom: 1em;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 
 .seccion-img-institucional {    
     width: 100%;

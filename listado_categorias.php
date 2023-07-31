@@ -1,35 +1,11 @@
-<?php require_once('Connections/yerbalito.php'); ?>
-<?php include('seguridad.php'); ?> 
-<?php
-if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
-{
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
+<?php 
 
-  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+session_start();
 
-  switch ($theType) {
-    case "text":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;    
-    case "long":
-    case "int":
-      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
-      break;
-    case "double":
-      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-      break;
-    case "date":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-    case "defined":
-      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-      break;
-  }
-  return $theValue;
-}
+// Verificar si existe una sesión activa
+if (!isset($_SESSION["autentica"])) {
+    header("Location: login.php"); // Redireccionar a la página de inicio de sesión si no hay sesión
+    exit();
 }
 
 mysql_select_db($database_yerbalito, $yerbalito);
@@ -38,10 +14,7 @@ $DatosJugadores = mysql_query($query_DatosJugadores, $yerbalito) or die(mysql_er
 $row_DatosJugadores = mysql_fetch_assoc($DatosJugadores);
 $totalRows_DatosJugadores = mysql_num_rows($DatosJugadores);
 
-
-
 mysql_select_db($database_yerbalito, $yerbalito);
-
 
 $query_DatosCategoria = "SELECT categoria.idcategoria, categoria.nombre_categoria, categoria.tecnico, categoria.telefono, categoria.idestado, categoria.edad, estado.tipo_estado FROM categoria, estado WHERE (categoria.idestado = estado.idestado AND categoria.idcategoria<>9 AND categoria.idcategoria<>10 AND categoria.idcategoria<>11) ORDER BY categoria.idcategoria";
 $DatosCategoria = mysql_query($query_DatosCategoria, $yerbalito) or die(mysql_error());

@@ -1,53 +1,27 @@
 window.addEventListener('load', function () {
 
-    const urlJason = "http://127.0.0.1/yerbalito/cumples.php"; //url del archivo json
+    const urlJason = "http://127.0.0.1/yerbalito/cumples.php"; // URL del archivo JSON
 
-    const calendario = document.getElementById("calendario"); //selecciono el elemento calendario
-    const divImagen = document.getElementById("imagen2"); //selecciono el elemento divImagen
-    
+    const calendario = document.getElementById("calendario"); // Selecciono el elemento calendario
+    const fotoJugador = document.getElementById("fotoJugador"); // Selecciono el elemento fotoJugador
 
-    //const idJugador= document.getElementById("idJug").value;
-
-    calendario.addEventListener("click", function () { //cuando se hace click en el boton de la imagen se ejecuta la funcion        
-
-        //llamo a la funcion mostrarPics y le paso el id del evento
-        //sino refresco la pagina y no cambia el id      
-
+    calendario.addEventListener("click", function () {
         mostrarPics(document.getElementById("idEvento").value);
     });
 
     const mostrarPics = async (evento) => {
-
-        //me trae correctamente el numero de evento
-        console.log(evento);        
-
-        const request = await fetch(urlJason);
+        const request = await fetch(urlJason + "?idEvento=" + evento);
         const data = await request.json();
-        const photo = "user.jpg"; //imagen por defecto
-        //const categoria = 0;
+        fotoJugador.innerHTML = ""; // Vaciar el contenido antes de agregar la nueva imagen
 
-
-        //entra
         for (let index = 0; index < data.length; index++) {
             if (data[index].id == evento) {
-
-                /*
-                console.log("largo json: "+data.length);
-                console.log("ID del evento "+ index +" json: "+data[index].id);
-                console.log("ID del evento cliqueado: "+evento);
-                //ESTO ANDA PERFECTO
-                */
-                const myIMG = this.document.createElement("img");
-                myIMG.src = data[index].image;
-                divImagen.appendChild(myIMG);
-
+                const jugadorImg = document.createElement("img");
+                jugadorImg.src = data[index].image;
+                fotoJugador.appendChild(jugadorImg);
             }
         }
 
-        //  divImagen.innerHTML = `<img src="images/gurises/${categoria}/${photo}"> </img>`;
-
-        //buscar la forma de resfrescar el calendario refresca la pagina        
-        //BUSCAR CORREGIR ESTO, no es la mejor forma de solucionarlo
-        setInterval("location.reload()", 3000);
+        // Puedes eliminar el setInterval para evitar que la página se refresque cada 3 segundos
     };
 });

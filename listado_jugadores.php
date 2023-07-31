@@ -1,45 +1,13 @@
 <?php 
 
-require_once('Connections/yerbalito.php');
-include('session.php'); 
 
-if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
-{
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
+session_start();
 
-  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-  switch ($theType) {
-    case "text":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;    
-    case "long":
-    case "int":
-      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
-      break;
-    case "double":
-      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-      break;
-    case "date":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-    case "defined":
-      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-      break;
-  }
-  return $theValue;
+// Verificar si existe una sesión activa
+if (!isset($_SESSION["autentica"])) {
+    header("Location: login.php"); // Redireccionar a la página de inicio de sesión si no hay sesión
+    exit();
 }
-}
-
-/*
-header('Content-type: application/vnd.ms-excel;charset=iso-8859-15');
-header('Content-Disposition: attachment; filename=Pago_de_Jugadores.xls');
-*/
-
-
 
 ?>
 <!DOCTYPE  html>

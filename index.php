@@ -24,21 +24,27 @@ $cantJugadores = count($rows);
 
     <title>Yerbalito</title>
 
-    <!- ----------------------------- estilos CSS ----------------------------- -->
+    <!- ----------------------------- estilos CSS ----------------------------- ->
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
         
-    <!- ----------------------------- JS ----------------------------- -->
+    <!- ----------------------------- JS ----------------------------- ->
     <script src="js/provisorio.js"></script>
 
 
-    <!- ----------------------------- FONT AWESOME ----------------------------- -->
+    <!- ----------------------------- FONT AWESOME ----------------------------- ->
     <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     
 
+    <!-- fullCalendar 3.8.2-->
+    <link rel="stylesheet" href="css/fullcalendar.min.css">
+  <!--fullCalendar 3.8.3 -->
+  <script src="js/fullcalendar.min.js"></script>
+  <script src="js/es.js"></script>
 
+  
 
-    <!- ----------------------------- GOOGLE FONTS ----------------------------- -->
+    <!- ----------------------------- GOOGLE FONTS ----------------------------- ->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">    

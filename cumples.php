@@ -1,8 +1,9 @@
 <?php
 
 //include('seguridad.php');
-include('control.php');
+//include('control.php');
 //include('session.php');
+include('Connections/yerbalito.php');
 
 header('Content-Type: application/json');
 

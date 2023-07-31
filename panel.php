@@ -1,189 +1,72 @@
 <?php 
 
-require_once('Connections/yerbalito.php');
-/*include('session.php'); //esto lo uso para dar la bienvenida y para cerrar sesion*/
+session_start();
 
-//include('seguridad.php');  	  
-//      include('funciones.php');	
+// Verificar si existe una sesión activa
+if (!isset($_SESSION["autentica"])) {
+    header("Location: login.php"); // Redireccionar a la página de inicio de sesión si no hay sesión
+    exit();
+}
+require_once('Connections/yerbalito.php');
+
 include('funciones2.php');
 
 //	  include 'funciones.php?banderaDeudores=1';
 
-
 //HABILITAR
 //actualizaDeudores(); //los que estan al dia y deberian pasar a deudores
 
-
 	// actualizaDeudores2(); // los que estan deudores y deberian pasar a habilitados
- 
 
-
+    //este codigo es para mostrar la cantidad de jugadores actualmente
+    $query = "SELECT * FROM jugador WHERE idcategoria<>10 AND idcategoria<>9 AND idcategoria<>11";
+    $result = mysqli_query($db, $query);
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $cantJugadores = count($rows);        
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-    <title>Yerbalito </title>
+    <title>Yerbalito</title>
 
-    <!-- ----------------------------- estilos CSS ----------------------------- -->
-    <link rel="stylesheet" href="./css/tasksStyles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- CSS 
-    <link rel="stylesheet" href="./css/loginSignupStyles.css"> ESTE ES EL CSS DE LOGIN Y SIGNUP
+    <!- ----------------------------- estilos CSS ----------------------------- ->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"> -->
+        
+    <!- ----------------------------- JS ----------------------------- ->
+    <!--<script src="js/provisorio.js"></script>
+    <script src="js/utils.js"></script>-->
 
+
+    <!- ----------------------------- FONT AWESOME ----------------------------- ->
+    <script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
     
-    ESTE ES EL CSS VIEJO
-    
-    <link rel="stylesheet" href="css/style1.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/social-icons.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/styled-elements.css" type="text/css" media="screen" />
-
-
-
-    <link rel="stylesheet" type="text/css" href="css/style54.css" />
-    <link rel="stylesheet" href="css/social-icons.css" type="text/css" media="screen" /> -->
-
-    <!-- css bootstrap nuevo (alertas)
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">      
-  -->
-
-
-
-    <!-- GOOGLE FONTS 
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
-
-     SKIN 
-    <link rel="stylesheet" href="skins/plastic/style.css" type="text/css" media="screen" />
-
-    css del calendario 4.8.2
-    <link href='fullCalendar/core/main.css' rel='stylesheet'>
-    <link href='fullCalendar/daygrid/main.css' rel='stylesheet'>
--->
-
-    <!-- css bootstrap viejo (modal)-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"> -->
-
-    <script src="js/jquery.min.js"></script>
-    <script src="js/moment.min.js"></script>
 
     <!-- fullCalendar 3.8.2-->
     <link rel="stylesheet" href="css/fullcalendar.min.css">
-    <!--fullCalendar 3.8.3 -->
-    <script src="js/fullcalendar.min.js"></script>
-    <script src="js/es.js"></script>
+  <!--fullCalendar 3.8.3 -->
+  <script src="js/fullcalendar.min.js"></script>
+  <script src="js/es.js"></script>
 
+  
 
-    <!--js de bootstrap nuevo
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  -->
-
-    <!-- js bootstrap viejo-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"> </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-
-    <script content-type="application/json;"> </script>
-
-
-    <script src="js/imagenEnModal.js"></script>
-    <script src="js/utils.js"></script>
-
-    <!-- js de facebook -->
-    <script async defer crossorigin="anonymous"
-        src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v16.0&appId=549567693989826&autoLogAppEvents=1"
-        nonce="RECHjLVP"></script>
-    <!--
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" ></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" ></script>
--->
-
-    <!--calendario 4.8.3
-  <script src="fullCalendar/core/main.js"></script>
-  <script src="fullCalendar/daygrid/main.js"></script>
-  <script src="fullCalendar/interaction/main.js"></script>
--->
-
-
-
-    <!-- ------------------------------ librerias ------------------------------ -->
-    <!-- Sweet Alert -->
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <!-- Animate on scroll -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-
-    <!-- ------------------- libreria de iconos Fontawesome -------------------- 
-    ES MAS NUEVA PERO NO ENCONTRE LOS ICONOS PARA LAS REDES SOCIALES
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
--->
-
+    <!- ----------------------------- GOOGLE FONTS ----------------------------- ->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Signika+Negative:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 
     <!-- favicon -->
     <link rel="shortcut icon" href="favicon.ico">
 
-    <script>
-    $(document).ready(function() {
-        $('#CalendarioWeb').fullCalendar({
-
-
-            dayClick: function(date, jsEvent, view) {
-                $(this).css('background-color', 'grey');
-                $("#exampleModal").modal();
-            },
-            events: 'cumples.php',
-            /*
-            eventSources:[{
-              events:[
-              {
-                title: 'Pablo',
-                descripcion: "Pablo Menchaca - Cat 2012",
-                start: '2023-04-22',          
-                color:"#acefc8",
-                textColor:"#000000" // an option!      
-                //allDay:true
-              }],        
-              color:"black",
-              textColor:"yellow" // an option!
-            }],
-            */
-            eventClick: function(calEvent, jsEvent, view) {
-                $('#idEvento').val(calEvent.id)
-                //          $('#idJug').val(calEvent.id_jugador);
-
-                $('#tituloEvento').html(calEvent.title);
-                $('#fecha').html(calEvent.start);
-                $('#descripcionEvento').html(calEvent.description);
-                $('#imagen2').val(calEvent.image);
-
-
-                //$('#idCat').val(calEvent.id_categoria);
-                $("#exampleModal").modal();
-
-
-            },
-
-            //cellHeight: 100,
-            slotWidth: 200,
-
-        });
-
-    });
-    </script>
 
 </head>
 
@@ -194,19 +77,31 @@ include('funciones2.php');
             <div class="logo">
 
             </div>
-
-            <div class="user-info">
-                <!--
-                    <h2> <a href="logout.php">Sign Out</a> </h2>
--->
-                <span> Bienvenido <?php echo $_SESSION['login_user']; ?> </span>
-
-                <div class="user-image"></div>
-                <button id="closeApp">
-                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</button>
-            </div>
         </nav>
+        <nav class="nav-menu">
+                            <ul class="ul">
+                             <li class="li-inicio">
+                               <a class="a" href="#">Inicio</a>
+                               <ul class="ul-submenu">
+                                 <li class="li"><a class="a" href="acerca.html">Nuestra institución</a></li>
+                                 <li class="li"><a class="a" href="calendario.php">Cumpleaños</a></li>
+                               </ul>
+                              </li>
+                              <li class="li"><a class="a" href="planteles.html">Planteles</a></li>
+                              <li class="li"><a class="a" href="blog.php">Blog</a></li>
+                               <li class="li"><a class="a" href="contacto.html">Contacto</a></li>
+                               <!--<li class="li"><a class="a" href="login.php">Login</a></li>-->
+                             </ul>
 
+                             
+            </nav>
+
+            <div class="user-info">                
+                                <p>Bienvenido <span class="span">  <?php echo $_SESSION["nombre"]; ?> </span></p>
+                                <div class="user-image"></div>
+                                <button id="closeApp" onclick="window.location.href='logout.php'"> <i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión </button>
+                            </div>
+            
     </header>
 
     <!-- MAIN -->
@@ -259,21 +154,14 @@ include('funciones2.php');
             </article>
 
             <article class="articulo">
-                <a href="salir.php"><img src="img/knobs-icons/Knob Cancel.png" width="32" height="32"
+                <a href="logout.php"><img src="img/knobs-icons/Knob Cancel.png" width="32" height="32"
                         title="Cerrar sesion"></a>SALIR
             </article>
         </section>
 
     </main>
 
-    <footer>
-
-        <?php
-        $query = "SELECT * FROM jugador WHERE idcategoria<>10 AND idcategoria<>9 AND idcategoria<>11";
-        $result = mysqli_query($db, $query);
-        $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
-        $cantJugadores = count($rows);
-    ?>
+    <footer class="footer">
 
         <div class="footer-content">
             <div class="ingresarA">
@@ -289,19 +177,28 @@ include('funciones2.php');
                 </li>
 
                 <li>
-                    <a href="https://www.instagram.com/clubyerbalitobabyfutbol/" target="_blank"> <i
+                    <a href="https://www.instagram.com/clubyerbalitobabyfutbol/" title="yerbalito" target="_blank"> <i
+                            class="fa fa-instagram"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/yerbalito.fem/" title="yerbalito femenino" target="_blank"> <i
                             class="fa fa-instagram"></i></a>
                 </li>
                 <li>
                     <a href="https://api.whatsapp.com/send?phone=59899163200&text=Hola%20Yerbalito" target="_blank"> <i
                             class="fa fa-whatsapp"></i></a>
                 </li>
+                <li>
+                    <a href="mailto:info@yerbalito.uy?subject=enviado%20desde%20la%20web" target="_blank"> <i
+                            class="fa fa-envelope" ></i></a>
+                </li>
             </ul>
+            
         </div>
 
         <div class="footer-bottom">
             <p> Este sitio esta diseñado por <a target="_blank" href="http://olimarteam.uy"> <span> olimarteam.uy
-                    </span> </p>
+                    </span> </a> </p>
         </div>
 
     </footer>

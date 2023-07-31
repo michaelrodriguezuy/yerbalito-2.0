@@ -1,5 +1,4 @@
 
-window.addEventListener('load', function () {
 
     const contadorNinos = document.getElementById("cantidad-finalizadas");    
     
@@ -38,4 +37,15 @@ window.addEventListener('load', function () {
         
     }     
 
-});
+    function cerrarSesion() {
+        // Enviar una solicitud AJAX al archivo logout.php para cerrar la sesión
+        fetch('logout.php')
+            .then(response => {
+                // Redireccionar a la página de inicio de sesión una vez que se haya cerrado la sesión
+                window.location.href = 'index.php';
+            })
+            .catch(error => {
+                console.error('Error al cerrar sesión:', error);
+            });
+    }
+

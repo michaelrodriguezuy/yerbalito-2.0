@@ -1,27 +1,13 @@
-<?php require_once('Connections/yerbalito.php');
- include('seguridad.php'); 
-
-mysql_set_charset('utf8');
- /*
-$mysqli = new mysqli($hostname_yerbalito, $username_yerbalito, $password_yerbalito,$database_yerbalito) or
-    die("No se pudo conectar: " . mysql_error());
-
-$hoy=getdate();
-
- 
-$resultMes = mysqli_query($mysqli, "SELECT * FROM recibo WHERE recibo.mes_pago =2 AND recibo.monto >0 AND recibo.anio = $hoy[year]"); // traigo los recibos separados por mes y por año
-
-$resultCategoriaMes = mysqli_query($mysqli, "SELECT * FROM recibo WHERE recibo.mes_pago =2 AND recibo.monto >0 AND recibo.anio = $hoy[year]"); // 
-
-$resultCategoriaTotal = mysqli_query($mysqli, "SELECT * FROM recibo WHERE recibo.mes_pago =2 AND recibo.monto >0 AND recibo.anio = $hoy[year]"); // 
+<?php 
 
 
- 
- $jugadores_un_mes = mysqli_query($mysqli, "SELECT * FROM jugador WHERE jugador.idjugador=recibo.idjugador AND ( ( (10+$hoy[month]) - COUNT(recibo.monto>0)=1) )"); // AND recibo.anio = $hoy[year]");
+session_start();
 
- $jugadores_dos_meses = mysqli_query($mysqli, "SELECT * FROM jugador WHERE jugador.idjugador=recibo.idjugador AND ( ( (10+$hoy[month]) - COUNT(recibo.monto>0)=2) )");
- $jugadores_mas_dos = mysqli_query($mysqli, "SELECT * FROM jugador WHERE jugador.idjugador=recibo.idjugador AND ( ( (10+$hoy[month]) - COUNT(recibo.monto>0)>2) )");
-  */
+// Verificar si existe una sesión activa
+if (!isset($_SESSION["autentica"])) {
+    header("Location: login.php"); // Redireccionar a la página de inicio de sesión si no hay sesión
+    exit();
+}
   
  ?> 
 
