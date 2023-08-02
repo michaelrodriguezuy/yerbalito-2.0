@@ -46,13 +46,11 @@ require_once('Connections/yerbalito.php');
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
     <script content-type="application/json;"> </script>
-
-
-    <script src="js/imagenEnModal.js"></script>
-    <script src="js/utils.js"></script>
+   
+    
 
     <!- ----------------------------- JS ----------------------------- -->
-    <script src="js/provisorio.js"></script>
+    <script src="js/utils.js"></script>
     
 
     <!- ----------------------------- FONT AWESOME ----------------------------- -->
@@ -131,10 +129,11 @@ require_once('Connections/yerbalito.php');
                 //$('#idCat').val(calEvent.id_categoria);
                 $("#exampleModal").modal();
                 */
+               return false;
             },
 
             //cellHeight: 100,
-            slotWidth: 200,
+            //slotWidth: 200,
 
         });
 

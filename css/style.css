@@ -471,6 +471,44 @@ header {
     text-transform: uppercase;
 }
 
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+.column{
+    flex: 45%;    
+}
+.articulo{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.articulo a {
+     display: flex;
+    justify-content: center;
+    align-items: center;
+ /*
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0f0f0; */
+}
+.articulo hr {
+    flex: 1;
+    height: 2px;
+    background-color: #f0f0f0; /* Puedes cambiar el color de la línea aquí */
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.svg-panel {
+    
+    width: 5em;
+    height: 5em;   
+
+    color: white;
+}
+
+
 .footer {
     position: relative;   
     background-color: var(--oscuro);
@@ -492,6 +530,14 @@ header {
 }
 
 .ingresarA {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+#listaTareas{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -577,3 +623,18 @@ header {
       flex-basis: calc(50% - 1em);
     }
   }
+
+  /* Estilos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .column {
+        width: 100%;
+    }
+
+    .articulo hr {
+        display: none;
+    }
+}
